@@ -80,7 +80,7 @@ function ValidateLogFile() {
  * Writes the log message with [INFO] tag, green color.
  * @param msg
  */
-export async function LogI(msg: any) {
+export function LogI(msg: any) {
 	ValidateLogFile();
 	console.log(
 		`[${chalk.cyan(moment().format("DD-MM-YYYY HH:mm:ss"))}] ${chalk.green(
@@ -97,7 +97,7 @@ export async function LogI(msg: any) {
  * Writes the log message with [ERROR] tag, red color.
  * @param msg
  */
-export async function LogE(msg: any, err?: any) {
+export function LogE(msg: any, err?: any) {
 	ValidateLogFile();
 	console.log(
 		`[${chalk.cyan(moment().format("DD-MM-YYYY HH:mm:ss"))}] ${chalk.red(
@@ -116,7 +116,7 @@ export async function LogE(msg: any, err?: any) {
  * Writes the log message with [WARN] tag, yellow color.
  * @param msg
  */
-export async function LogW(msg: any, err: any) {
+export function LogW(msg: any, err: any) {
 	ValidateLogFile();
 	console.log(
 		`[${chalk.cyan(moment().format("DD-MM-YYYY HH:mm:ss"))}] ${chalk.yellow(
