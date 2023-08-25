@@ -85,7 +85,7 @@ export function LogI(msg: any) {
 	console.log(
 		`[${chalk.cyan(moment().format("DD-MM-YYYY HH:mm:ss"))}] ${chalk.green(
 			"[INFO]: "
-		)} + ${msg}`
+		)}${msg}`
 	);
 	fs.appendFileSync(
 		path.join(logDir, currentLogFile),
@@ -102,7 +102,7 @@ export function LogE(msg: any, err?: any) {
 	console.log(
 		`[${chalk.cyan(moment().format("DD-MM-YYYY HH:mm:ss"))}] ${chalk.red(
 			"[ERROR]: "
-		)} + ${msg}`
+		)}${msg}`
 	);
 	if (err) console.log(chalk.red(err));
 	fs.appendFileSync(
@@ -121,7 +121,7 @@ export function LogW(msg: any, err: any) {
 	console.log(
 		`[${chalk.cyan(moment().format("DD-MM-YYYY HH:mm:ss"))}] ${chalk.yellow(
 			"[WARN]: "
-		)} + ${msg}`
+		)}${msg}`
 	);
 	console.log(chalk.red(err));
 	fs.appendFileSync(
