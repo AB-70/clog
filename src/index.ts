@@ -145,3 +145,7 @@ export function LogW(msg: any, err?: any) {
       );
   }
 }
+
+export function LogX(proc: any) {
+  process?.exit(0);
+}
