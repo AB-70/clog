@@ -106,11 +106,7 @@ export function LogE(msg: any, err?: any) {
       "[ERROR]: "
     )}${msg}`
   );
-  if (typeof err === "string") {
-    console.log(chalk.red(err));
-  } else {
-    console.log(chalk.red(JSON.stringify(err)));
-  }
+  console.log(chalk.red(err));
   if (currentLogFile) {
     fs.appendFileSync(
       path.join(logDir, currentLogFile),
@@ -136,7 +132,7 @@ export function LogW(msg: any, err?: any) {
       "[WARN]: "
     )}${msg}`
   );
-  if (err) console.log(chalk.red(JSON.stringify(err)));
+  if (err) console.log(chalk.red(err));
   if (currentLogFile) {
     fs.appendFileSync(
       path.join(logDir, currentLogFile),
