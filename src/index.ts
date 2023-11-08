@@ -8,7 +8,7 @@ let enableLogging = false;
 let logRotation: LogRotation;
 let logDir: string;
 let currentLogFile: string;
-const VERSION = "v1.0";
+const VERSION = "v1.1";
 
 export enum LogRotation {
   /**
@@ -106,7 +106,11 @@ export function LogE(msg: any, err?: any) {
       "[ERROR]: "
     )}${msg}`
   );
-  if (err) console.log(chalk.red(JSON.stringify(err)));
+  if (typeof err === "string") {
+    console.log(chalk.red(err));
+  } else {
+    console.log(chalk.red(JSON.stringify(err)));
+  }
   if (currentLogFile) {
     fs.appendFileSync(
       path.join(logDir, currentLogFile),
@@ -144,8 +148,4 @@ export function LogW(msg: any, err?: any) {
         JSON.stringify(err) + "\n"
       );
   }
-}
-
-export function LogX(proc: any) {
-  process?.exit(0);
 }
